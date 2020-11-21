@@ -1,0 +1,17 @@
+.navbar {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__items a {
+    margin-left: 20px;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    text-decoration: none;
+  }
+}

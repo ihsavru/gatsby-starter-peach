@@ -1,58 +1,58 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import SEO from "../components/seo"
 
+import './style.scss'
+
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
+  
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
+      <section className="about__section">
+        <img src="pexels-pixabay-270694.jpg"></img>
+        <div>
+          <h1>{data.site.siteMetadata.title}</h1>
+          <p>{data.site.siteMetadata.description}</p>
+          <a href={`mailto:${data.site.siteMetadata.email}`} className="about__cta">Work with Me</a>
+        </div>
+      </section>
+      <div className="blog__section">
+        <h4>Latest Blogs</h4>
+        <Link to="/blog">View All</Link>
+      </div>
+      <ol className="blog__grid">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
-
+          const { frontmatter: { thumbnail, tags } } = post;
           return (
-            <li key={post.fields.slug}>
+            <li key={post.fields.slug} className="blog__item">
               <article
-                className="post-list-item"
                 itemScope
                 itemType="http://schema.org/Article"
               >
+                <img src={thumbnail}></img>
                 <header>
-                  <h2>
+                  <h4>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
-                  </h2>
+                  </h4>
                   <small>{post.frontmatter.date}</small>
                 </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
+                <section className="blog__item-tags">
+                  {tags.map(tag => (
+                    <Link 
+                      to={`/tags/${tag}`} 
+                      className="blog__item-tag"
+                    >
+                      {tag}
+                    </Link>
+                  ))}
                 </section>
               </article>
             </li>
@@ -70,11 +70,14 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      limit: 3, 
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       nodes {
-        excerpt
         fields {
           slug
         }
@@ -82,6 +85,8 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          tags
+          thumbnail
         }
       }
     }
