@@ -239,6 +239,10 @@ button {
   background-color: var(--color-button);
 }
 
+img {
+  max-width: 100%;
+}
+
 /* Custom classes */
 
 .global-wrapper {
