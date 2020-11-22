@@ -22,8 +22,8 @@
   &__item {
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 20px 20px 60px #d9d9d9, 
-    -20px -20px 60px #ffffff;
+    box-shadow: 20px 20px 60px var(--color-shadow-dark), 
+    -20px -20px 60px var(--color-shadow-light);
     margin-bottom: var(--spacing-8);
     cursor: pointer;
 
@@ -41,8 +41,8 @@
       box-sizing: border-box;
       width: 100%;
       border-radius: 20px;
-      box-shadow: 12px 12px 24px #e3e3e3, 
-      -12px -12px 24px #ffffff;
+      box-shadow: 12px 12px 24px var(--color-shadow-dark), 
+      -12px -12px 24px var(--color-shadow-light);
       margin-bottom: 10px;
     }
 

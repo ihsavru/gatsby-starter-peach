@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
+import ThemeSwitch from '../ThemeSwitch';
+
 import './style.scss';
 
 const NavBar = () => {
@@ -31,6 +33,7 @@ const NavBar = () => {
       <nav className="navbar__items">
         <Link to="/">Home</Link>
         <Link to="/blog">Blog</Link>
+        <ThemeSwitch />
       </nav>
     </header>
   );

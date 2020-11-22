@@ -52,13 +52,32 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
+}
+
+body.dark {
   --color-primary: #463f3a;
   --color-text: #463f3a;
   --color-text-light: #b08968;
   --color-heading: #463f3a;
   --color-accent: #7f5539;
-  --color-background: #f4f3ee;
-  --color-background-dark: #EBE9E0;
+  --color-background: #ffffff;
+  --color-btn-background: #f4f3ee;
+  --color-btn-background-dark: #EBE9E0;
+  --color-shadow-dark: #d9d9d9;
+  --color-shadow-light: #ffffff;
+}
+
+body {
+  --color-primary: #fff;
+  --color-text: #EBE9E0;
+  --color-text-light: #EBE9E0;
+  --color-heading: #EBE9E0;
+  --color-accent: #7f5539;
+  --color-background: #2e2925;
+  --color-btn-background: #4b443c;
+  --color-btn-background-dark: #463f3b;
+  --color-shadow-dark: #221e1b;
+  --color-shadow-light: #3a342f;
 }
 
 /* HTML elements */
@@ -80,6 +99,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  background: var(--color-background);
 }
 
 footer {
@@ -105,6 +125,7 @@ h6 {
   margin-bottom: var(--spacing-6);
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
+  color: var(--color-text);
 }
 
 h2,

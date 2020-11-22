@@ -7,10 +7,10 @@
 
   &__title {
     padding: 15px;
-    background-color: var(--color-background);
+    background-color: var(--color-btn-background);
     border-radius: 20px;
-    box-shadow:  6px 6px 11px #d9d9d9, 
-    -6px -6px 11px #ffffff;
+    box-shadow:  6px 6px 11px var(--color-shadow-dark), 
+    -6px -6px 11px var(--color-shadow-light);
     text-decoration: none !important;
 
     h6 {
@@ -18,17 +18,22 @@
     }
 
     &:hover {
-      background-color: var(--color-background-dark);
+      background-color: var(--color-btn-background-dark);
     }
   }
 
-  &__items a {
-    margin-left: 20px;
-    font-weight: bold;
-    font-family: var(--font-heading);
-
-    &:hover {
-      text-decoration: underline;
+  &__items {
+    display: flex;
+    align-items: center;
+    
+    a {
+      margin-right: 20px;
+      font-weight: bold;
+      font-family: var(--font-heading);
+  
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

@@ -8,9 +8,8 @@
     img {
       width: 100%;
       border-radius: 20px;
-      border: 10px solid #fff;
-      box-shadow: 20px 20px 60px #d9d9d9, 
-      -20px -20px 60px #ffffff;
+      box-shadow: 20px 20px 60px var(--color-shadow-dark), 
+      -20px -20px 60px var(--color-shadow-light);
     }
   }
 
@@ -18,6 +17,10 @@
     width: 30px;
     height: 30px;
     margin: 0 10px 10px 0;
+
+    path {
+      fill: var(--color-text);
+    }
 
     &:hover {
       opacity: 0.8;
@@ -30,12 +33,12 @@
     border-radius: 15px;
     padding: 15px;
     border: none;
-    background-color: var(--color-background);
-    box-shadow:  6px 6px 12px #d9d9d9, 
-    -6px -6px 12px #ffffff;
+    background-color: var(--color-btn-background);
+    box-shadow:  6px 6px 12px var(--color-shadow-dark), 
+    -6px -6px 12px var(--color-shadow-light);
 
     &:hover {
-      background-color: var(--color-background-dark);
+      background-color: var(--color-btn-background-dark);
       text-decoration: none;
     }
   }
