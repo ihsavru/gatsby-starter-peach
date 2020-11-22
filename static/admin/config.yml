@@ -3,8 +3,8 @@ backend:
   # change repo to your git repository url
   repo: ihsavru/gatsby-starter-peach
 
-media_folder: content/assets
-public_folder: /assets
+media_folder: /static/images
+public_folder: /images
 
 collections:
   - name: settings
