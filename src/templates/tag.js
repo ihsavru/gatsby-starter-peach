@@ -1,8 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PostsList from '../components/PostsList';
+import SEO from '../components/seo';
+import Tags from '../components/Tags';
 
 export default function TagTemplate({
   pageContext,
@@ -22,6 +24,10 @@ export default function TagTemplate({
 
   return (
     <Layout location={location}>
+      <SEO
+        title={`${tag} | Posts`}
+        description={tagHeader}
+      />
       <Helmet>
         <title>
           {siteMetadata.title}
@@ -38,9 +44,7 @@ export default function TagTemplate({
           <PostsList posts={edges} />
           <h2 className="all-tags">All Tags &darr;</h2>
           <div className="post__tags tags-container">
-            {tags.map(({ tag: tagName }) => (
-              <Link to={`/tags/${tagName}`} className="blog__item-tag">{tagName}</Link>
-            ))}
+            <Tags tags={tags.map(({ tag: tagName }) => tagName)} />
           </div>
         </div>
       </div>

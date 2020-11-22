@@ -1,10 +1,3 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -28,8 +21,16 @@ const SEO = ({
     `,
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const {
+    siteMetadata: {
+      description: siteDescription,
+      title: siteTitle,
+      social: { twitter },
+    },
+  } = site;
+
+  const metaDescription = description || siteDescription;
+  const defaultTitle = siteTitle;
 
   return (
     <Helmet
@@ -61,7 +62,7 @@ const SEO = ({
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata?.social?.twitter || '',
+          content: twitter,
         },
         {
           name: 'twitter:title',
@@ -81,12 +82,5 @@ SEO.defaultProps = {
   meta: [],
   description: '',
 };
-
-// SEO.propTypes = {
-//   description: PropTypes.string,
-//   lang: PropTypes.string,
-//   meta: PropTypes.arrayOf(PropTypes.object),
-//   title: PropTypes.string.isRequired,
-// };
 
 export default SEO;

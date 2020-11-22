@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PostsList from '../components/PostsList';
+import SEO from '../components/seo';
 
 const BlogPage = ({
   data: {
@@ -12,6 +13,7 @@ const BlogPage = ({
   location,
 }) => (
   <Layout location={location}>
+    <SEO title="All Posts" />
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />

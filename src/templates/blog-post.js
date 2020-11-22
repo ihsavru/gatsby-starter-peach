@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+import PostsGrid from '../components/PostsGrid';
 
 const BlogPostTemplate = ({ data, location }) => {
   const {
@@ -10,6 +11,7 @@ const BlogPostTemplate = ({ data, location }) => {
     site: { siteMetadata: { title: siteTitle } },
     previous,
     next,
+    more,
   } = data;
 
   const {
@@ -74,6 +76,7 @@ const BlogPostTemplate = ({ data, location }) => {
           </li>
         </ul>
       </nav>
+      <PostsGrid posts={more.nodes} />
     </Layout>
   );
 };
@@ -99,6 +102,23 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+    }
+    more: allMarkdownRemark(
+      limit: 3, 
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          tags
+          thumbnail
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
