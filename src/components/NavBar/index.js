@@ -27,7 +27,7 @@ const NavBar = () => {
 
   return (
     <header className="navbar__container">
-      <h6 className="navbar__title">{title}</h6>
+      <Link className="navbar__title" to="/"><h6>{title}</h6></Link>
       <nav className="navbar__items">
         <Link to="/">Home</Link>
         <Link to="/blog">Blog</Link>

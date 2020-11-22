@@ -1,13 +1,16 @@
 .posts {
   &__container {
     list-style: none;
+
+    a:hover {
+      text-decoration: none;
+    }
   }
 
   &__thumbnail {
     width: 100px;
     height: 100px;
     border-radius: 20px;
-    border: 5px solid white;
     box-shadow:  6px 6px 12px #d9d9d9, 
     -6px -6px 12px #ffffff;
   }
@@ -20,8 +23,18 @@
     padding-bottom: 15px;
     border-bottom: 1px solid #ccc;
 
-    h2 {
-      margin: 10px;
+    &:hover {
+      h2 {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 0 10px 0;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

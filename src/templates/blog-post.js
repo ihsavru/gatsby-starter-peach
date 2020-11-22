@@ -6,14 +6,27 @@ import SEO from '../components/seo';
 
 const BlogPostTemplate = ({ data, location }) => {
   const {
-    markdownRemark: post, site: { siteMetadata: { title: siteTitle } }, previous, next,
+    markdownRemark: post,
+    site: { siteMetadata: { title: siteTitle } },
+    previous,
+    next,
   } = data;
+
+  const {
+    excerpt,
+    html,
+    frontmatter: {
+      title,
+      description,
+      date,
+    },
+  } = post;
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={title}
+        description={description || excerpt}
       />
       <article
         className="blog-post"
@@ -21,12 +34,12 @@ const BlogPostTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <h1 itemProp="headline">{title}</h1>
+          <p>{date}</p>
         </header>
         <section
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: html }}
           itemProp="articleBody"
         />
         <hr />

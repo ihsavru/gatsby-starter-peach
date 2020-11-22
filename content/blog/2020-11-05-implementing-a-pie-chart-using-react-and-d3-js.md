@@ -1,6 +1,6 @@
 ---
 template: BlogPost
-slug: /blog/react-d3-pie-chart
+slug: /react-d3-pie-chart
 date: 2020-11-05T12:30:00.000Z
 title: Implementing a Pie Chart using React and D3.js
 metaDescription: >-

@@ -1,6 +1,6 @@
 ---
 template: BlogPost
-slug: /blog/calling-javascript-code-from-cpp-using-webassembly
+slug: /calling-javascript-code-from-cpp-using-webassembly
 date: 2020-11-09T13:19:34.627Z
 title: Calling JavaScript code from C/C++ using WebAssembly
 tags:

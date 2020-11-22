@@ -34,30 +34,30 @@ const BlogIndex = ({ data, location }) => {
           } = post;
           return (
             <li key={slug} className="blog__item">
-              <article
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <img src={thumbnail} alt="" />
-                <header>
-                  <h4>
-                    <Link to={slug} itemProp="url">
-                      <span itemProp="headline">{postTitle}</span>
-                    </Link>
-                  </h4>
-                  <small>{date}</small>
-                </header>
-                <section className="blog__item-tags">
-                  {tags.map((tag) => (
-                    <Link
-                      to={`/tags/${tag}`}
-                      className="blog__item-tag"
-                    >
-                      {tag}
-                    </Link>
-                  ))}
-                </section>
-              </article>
+              <Link to={slug} itemProp="url">
+                <article
+                  itemScope
+                  itemType="http://schema.org/Article"
+                >
+                  <img src={thumbnail} alt="" />
+                  <header>
+                    <h4 className="blog__item-title">
+                      {postTitle}
+                    </h4>
+                    <small>{date}</small>
+                  </header>
+                  <section className="blog__item-tags">
+                    {tags.map((tag) => (
+                      <Link
+                        to={`/tags/${tag}`}
+                        className="blog__item-tag"
+                      >
+                        {tag}
+                      </Link>
+                    ))}
+                  </section>
+                </article>
+              </Link>
             </li>
           );
         })}
@@ -74,6 +74,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         description
+        email
       }
     }
     allMarkdownRemark(

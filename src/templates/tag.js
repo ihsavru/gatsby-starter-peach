@@ -39,7 +39,7 @@ export default function TagTemplate({
           <h2 className="all-tags">All Tags &darr;</h2>
           <div className="post__tags tags-container">
             {tags.map(({ tag: tagName }) => (
-              <Link to={`/tags/${tagName}`} className="post__tag">{tagName}</Link>
+              <Link to={`/tags/${tagName}`} className="blog__item-tag">{tagName}</Link>
             ))}
           </div>
         </div>
@@ -68,12 +68,15 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          excerpt(pruneLength: 250)
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            slug
             title
             thumbnail
             tags
+          }
+          fields { 
+            slug 
           }
         }
       }

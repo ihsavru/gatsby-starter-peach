@@ -1,6 +1,6 @@
 ---
 template: BlogPost
-slug: /blog/reactjs-guide-how-to-learn-react-as-a-complete-beginner
+slug: /reactjs-guide-how-to-learn-react-as-a-complete-beginner
 date: 2020-11-05T16:46:51.652Z
 title: 'ReactJS Guide: How to learn React as a complete beginner?'
 thumbnail: /pexels-cottonbro-4065890.jpg

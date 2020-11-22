@@ -3,12 +3,14 @@
     display: flex;
     justify-content: space-between;
     margin-top: var(--spacing-16);
-    z-index: 1;
+    z-index: 10;
 
-    h4 {
+    h4, a {
       margin: 0;
+      z-index: 1;
     }
   }
+
   &__grid {
     display: grid;
     list-style: none;
@@ -19,17 +21,29 @@
 
   &__item {
     border-radius: 20px;
+    padding: 20px;
     box-shadow: 20px 20px 60px #d9d9d9, 
     -20px -20px 60px #ffffff;
     margin-bottom: var(--spacing-8);
+    cursor: pointer;
+
+    &:hover {
+      a {
+        text-decoration: none;
+      }
+      
+      h4{
+        text-decoration: underline;
+      }
+    }
 
     img {
       box-sizing: border-box;
-      width: 95%;
+      width: 100%;
       border-radius: 20px;
-      margin: 10px;
-      box-shadow: 20px 20px 60px #d9d9d9, 
-      -20px -20px 60px #ffffff;
+      box-shadow: 12px 12px 24px #e3e3e3, 
+      -12px -12px 24px #ffffff;
+      margin-bottom: 10px;
     }
 
     p {
@@ -42,12 +56,11 @@
       margin-top: var(--spacing-0);
     }
 
-    header {
-      padding: 20px;
+    &-title:hover {
+      text-decoration: underline;
     }
 
     &-tags {
-      margin: 0 20px;
       padding-bottom: 20px;
       display: flex;
       flex-wrap: wrap;
@@ -55,19 +68,24 @@
 
     &-tag {
       padding: 3px 8px;
-      margin-right: 10px;
+      margin: 10px 10px 0 0;
       border-radius: 20px;
       box-shadow: 2px 2px 6px #d9d9d9, 
             -2px -2px 6px #ffffff;
-      text-decoration: none;
+      background-color: var(--color-background);
+      
+      &:hover {
+        background-color: var(--color-background-dark);
+        text-decoration: none;
+      }
     }
   }
 }
 
 .about {
   &__section {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
     margin-top: 50px;
 
     img {
@@ -83,7 +101,13 @@
     border-radius: 15px;
     padding: 15px;
     border: none;
+    background-color: var(--color-background);
     box-shadow:  6px 6px 12px #d9d9d9, 
     -6px -6px 12px #ffffff;
+
+    &:hover {
+      background-color: var(--color-background-dark);
+      text-decoration: none;
+    }
   }
 }

@@ -52,12 +52,13 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
-  --color-text: #2e353f;
-  --color-text-light: #4f5969;
-  --color-heading: #1a202c;
-  --color-heading-black: black;
-  --color-accent: #d1dce5;
+  --color-primary: #463f3a;
+  --color-text: #463f3a;
+  --color-text-light: #b08968;
+  --color-heading: #463f3a;
+  --color-accent: #7f5539;
+  --color-background: #f4f3ee;
+  --color-background-dark: #EBE9E0;
 }
 
 /* HTML elements */
@@ -118,7 +119,7 @@ h6 {
 h1 {
   font-weight: var(--fontWeight-black);
   font-size: var(--fontSize-6);
-  color: var(--color-heading-black);
+  color: var(--color-heading);
 }
 
 h2 {
@@ -161,8 +162,9 @@ p {
   line-height: var(--lineHeight-relaxed);
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--spacing-0);
   padding: var(--spacing-0);
+  font-weight: var(--fontWeight-normal);
 }
 
 ul,
@@ -183,10 +185,6 @@ ol li {
 
 li > p {
   margin-bottom: calc(var(--spacing-8) / 2);
-}
-
-li *:last-child {
-  margin-bottom: var(--spacing-0);
 }
 
 li > ul {
@@ -229,11 +227,16 @@ table thead tr th {
 
 a {
   color: var(--color-primary);
+  font-family: var(--fontFamily-sans);
+  font-weight: var(--fontWeight-black);
+  text-decoration: none;
 }
 
-a:hover,
-a:focus {
-  text-decoration: none;
+a:hover {
+  text-decoration: underline;
+}
+button {
+  background-color: var(--color-button);
 }
 
 /* Custom classes */
@@ -281,7 +284,7 @@ a:focus {
 }
 
 .blog-post header h1 {
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
+  margin: var(--spacing-20) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
 
 .blog-post header p {
