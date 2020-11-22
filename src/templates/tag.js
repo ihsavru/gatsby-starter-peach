@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
-import PostsList from '../components/PostsList'
+import PostsList from '../components/PostsList';
 
 export default function TagTemplate({
   pageContext,
@@ -30,7 +30,11 @@ export default function TagTemplate({
       </Helmet>
       <div className="blog-post-container">
         <div>
-          <h2>{tagHeader} &darr;</h2>
+          <h2>
+            {tagHeader}
+            {' '}
+            &darr;
+          </h2>
           <PostsList posts={edges} />
           <h2 className="all-tags">All Tags &darr;</h2>
           <div className="post__tags tags-container">

@@ -1,24 +1,24 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
 
-import Layout from "../components/Layout"
-import SEO from "../components/seo"
+import Layout from '../components/Layout';
+import SEO from '../components/seo';
 
-import './style.scss'
+import './style.scss';
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-  
+  const { site: { siteMetadata: { title, email, description } } } = data;
+  const posts = data.allMarkdownRemark.nodes;
+
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={title}>
       <SEO title="All posts" />
       <section className="about__section">
-        <img src="pexels-pixabay-270694.jpg"></img>
+        <img src="pexels-pixabay-270694.jpg" alt="" />
         <div>
-          <h1>{data.site.siteMetadata.title}</h1>
-          <p>{data.site.siteMetadata.description}</p>
-          <a href={`mailto:${data.site.siteMetadata.email}`} className="about__cta">Work with Me</a>
+          <h1>{title}</h1>
+          <p>{description}</p>
+          <a href={`mailto:${email}`} className="about__cta">Work with Me</a>
         </div>
       </section>
       <div className="blog__section">
@@ -26,28 +26,31 @@ const BlogIndex = ({ data, location }) => {
         <Link to="/blog">View All</Link>
       </div>
       <ol className="blog__grid">
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-          const { frontmatter: { thumbnail, tags } } = post;
+        {posts.map((post) => {
+          const {
+            frontmatter: {
+              thumbnail, tags, date, title: postTitle,
+            }, fields: { slug },
+          } = post;
           return (
-            <li key={post.fields.slug} className="blog__item">
+            <li key={slug} className="blog__item">
               <article
                 itemScope
                 itemType="http://schema.org/Article"
               >
-                <img src={thumbnail}></img>
+                <img src={thumbnail} alt="" />
                 <header>
                   <h4>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                    <Link to={slug} itemProp="url">
+                      <span itemProp="headline">{postTitle}</span>
                     </Link>
                   </h4>
-                  <small>{post.frontmatter.date}</small>
+                  <small>{date}</small>
                 </header>
                 <section className="blog__item-tags">
-                  {tags.map(tag => (
-                    <Link 
-                      to={`/tags/${tag}`} 
+                  {tags.map((tag) => (
+                    <Link
+                      to={`/tags/${tag}`}
                       className="blog__item-tag"
                     >
                       {tag}
@@ -56,14 +59,14 @@ const BlogIndex = ({ data, location }) => {
                 </section>
               </article>
             </li>
-          )
+          );
         })}
       </ol>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query {
@@ -91,4 +94,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

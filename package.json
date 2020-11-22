@@ -37,12 +37,13 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^7.13.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "node-sass": "4.14.1",
     "prettier": "2.1.2"
   },
@@ -63,6 +64,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "lint:js": "eslint --ignore-path .eslintignore -- src/**/**.js"
   }
 }
