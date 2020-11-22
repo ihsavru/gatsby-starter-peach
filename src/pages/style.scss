@@ -13,7 +13,19 @@
     }
   }
 
+  &__social-links {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px 10px 0;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   &__cta {
+    display: block;
+    width: fit-content;
     border-radius: 15px;
     padding: 15px;
     border: none;
