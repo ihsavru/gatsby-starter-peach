@@ -3,11 +3,15 @@ template: BlogPost
 slug: /react-d3-pie-chart
 date: 2020-11-05T12:30:00.000Z
 title: Implementing a Pie Chart using React and D3.js
+tags:
+  - javascript
+  - d3.js
+  - react
+  - visualization
 metaDescription: >-
   Learn how to implement a Pie Chart and a Donut Chart in ReactJS using D3.js
   visualization library. 
-thumbnail: /pexels-flickr-149767.jpg
-tags: ["javascript","d3.js","react","visualization"]
+thumbnail: /images/pexels-cottonbro-4065890.jpg
 ---
 Today, we will be looking into how to create a Pie Chart using React and D3.js
 
