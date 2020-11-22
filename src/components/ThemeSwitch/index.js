@@ -6,8 +6,9 @@ import './style.scss';
 export default () => (
   <ThemeToggler>
     {({ theme, toggleTheme }) => (
-      <label>
+      <label htmlFor="theme-changer">
         <input
+          id="theme-changer"
           type="checkbox"
           className="theme-changer"
           onChange={(e) => toggleTheme(e.target.checked ? 'dark' : 'light')}
