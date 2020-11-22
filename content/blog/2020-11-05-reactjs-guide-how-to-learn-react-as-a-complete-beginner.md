@@ -3,8 +3,12 @@ template: BlogPost
 slug: /reactjs-guide-how-to-learn-react-as-a-complete-beginner
 date: 2020-11-05T16:46:51.652Z
 title: 'ReactJS Guide: How to learn React as a complete beginner?'
-thumbnail: /pexels-cottonbro-4065890.jpg
-tags: ["javascript","beginner","react","roadmap"]
+tags:
+  - javascript
+  - beginner
+  - react
+  - roadmap
+thumbnail: /images/pexels-cottonbro-4065894.jpg
 ---
 
 
