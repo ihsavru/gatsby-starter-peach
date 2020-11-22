@@ -17,7 +17,10 @@ const PostsList = ({ posts }) => (
       <li>
         <a href={slug}>
           <article className="posts__article">
-            <img className="posts__thumbnail" src={thumbnail} alt="" />
+            <div
+              className="posts__thumbnail"
+              style={{ backgroundImage: `url(${thumbnail}` }}
+            />
             <div>
               <h2 className="posts__title">{title}</h2>
               <p>{excerpt}</p>

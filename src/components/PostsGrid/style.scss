@@ -61,3 +61,11 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .post {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
