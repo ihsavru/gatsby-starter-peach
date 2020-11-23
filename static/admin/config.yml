@@ -70,7 +70,6 @@ collections:
       - label: Featured Image
         name: thumbnail
         widget: image
-        hint: "Image size 1280x800 works best :)"
         required: false
         media_library:
           config:
