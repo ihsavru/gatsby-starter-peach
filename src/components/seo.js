@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const SEO = ({
-  description, lang, meta, title,
+  description, lang, meta, title, keywords,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -28,6 +28,11 @@ const SEO = ({
       social: { twitter },
     },
   } = site;
+  const metaKeywords = keywords || [
+    'Programming Blog Site',
+    'Software Developer Portfolio',
+    'Full Stack Developer Blog',
+  ];
 
   const metaDescription = description || siteDescription;
   const defaultTitle = siteTitle;
@@ -72,7 +77,14 @@ const SEO = ({
           name: 'twitter:description',
           content: metaDescription,
         },
-      ].concat(meta)}
+      ].concat(
+        metaKeywords && metaKeywords.length > 0
+          ? {
+            name: 'keywords',
+            content: metaKeywords.join(', '),
+          }
+          : [],
+      ).concat(meta)}
     />
   );
 };

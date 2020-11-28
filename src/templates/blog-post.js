@@ -21,6 +21,7 @@ const BlogPostTemplate = ({ data, location }) => {
       title,
       description,
       date,
+      tags,
     },
   } = post;
 
@@ -28,6 +29,7 @@ const BlogPostTemplate = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO
         title={title}
+        keywords={tags}
         description={description || excerpt}
       />
       <article
@@ -102,6 +104,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
     more: allMarkdownRemark(
