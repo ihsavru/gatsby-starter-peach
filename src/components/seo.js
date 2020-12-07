@@ -28,11 +28,11 @@ const SEO = ({
       social: { twitter },
     },
   } = site;
-  const metaKeywords = keywords || [
+  const metaKeywords = (!keywords || keywords?.length === 0) ? [
     'Programming Blog Site',
     'Software Developer Portfolio',
     'Full Stack Developer Blog',
-  ];
+  ] : keywords;
 
   const metaDescription = description || siteDescription;
   const defaultTitle = siteTitle;
@@ -77,14 +77,11 @@ const SEO = ({
           name: 'twitter:description',
           content: metaDescription,
         },
-      ].concat(
-        metaKeywords && metaKeywords.length > 0
-          ? {
-            name: 'keywords',
-            content: metaKeywords.join(', '),
-          }
-          : [],
-      ).concat(meta)}
+        {
+          name: 'keywords',
+          content: metaKeywords.join(', '),
+        },
+      ].concat(meta)}
     />
   );
 };
